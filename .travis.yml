@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jercle/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run jercle/docker-react npm run test -- --coverage
